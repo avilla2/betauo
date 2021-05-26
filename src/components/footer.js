@@ -42,7 +42,7 @@ export default function Footer() {
                 <div > 
                     <Typography variant='subtitle1'>  Beta Rho Chapter of Beta Theta Pi </Typography>
                     <Typography variant='subtitle1'> 1009 Patterson St, Eugene, OR 97401 </Typography>
-                    <Typography variant='subtitle2' gutterBottom>  © 2021, Gamma Theta Chapter of Beta Theta Pi. All Rights Reserved.</Typography>
+                    <Typography variant='subtitle2' gutterBottom>  © 2021, Beta Rho Chapter of Beta Theta Pi. All Rights Reserved.</Typography>
                     <Typography variant='body2'>  Website Design by <a style={{color: "#2f2f2f"}} href="https://www.alexandrovilla.com">Alexandro Villa</a></Typography>
                 </div>
                 <span>
