@@ -13,12 +13,16 @@ const theme = createMuiTheme({
       main: "#002f6c",
     },
     secondary: {
-      // Beta Red
-      main: "#AB2328",
+      // Beta Metallic Gold
+      main: "#872",
     },
     info: {
       // Beta Gray
       main: "#D9D9D6",
+    },
+    // Beta Red
+    success: {
+      main: "#AB2328",
     },
   },
 });

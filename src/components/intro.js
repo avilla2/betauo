@@ -19,10 +19,12 @@ const useStyles = makeStyles((theme) => ({
     ends: {
       fontFamily: '"Poppins", sans-serif',
       color: "white",
+      textShadow: "3px 3px 20px #2f2f2f",
     },
     middle: {
       fontFamily: '"Poppins", sans-serif',
       color: "#872",
+      textShadow: "2px 2px 7px #2f2f2f",
     },
   }));
 

@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
         fontFamily: '"Poppins", sans-serif',
         fontSize: "16px",
         flexGrow: 1,
+        textShadow: "4px 4px 15px #2f2f2f",
     },
     svg: {
       width: 100,
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     },
     polygon: {
       fillOpacity:0,
-      stroke: theme.palette.common.white,
+      stroke: theme.palette.secondary.main,
       strokeWidth: 3,
     },
     betalogo: {
@@ -78,7 +79,7 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position="fixed" elevation={!trigger ? 0 : 1} color={ !trigger ? "transparent" : "primary" } >
         <Toolbar className={classes.toolbar}>
-          <Button onMouseEnter={() => handleChange()} onMouseLeave={() => handleChange()} className={classes.fonts} color="inherit">
+          <Button onMouseEnter={() => handleChange()} onMouseLeave={() => handleChange()} className={classes.fonts} color={ checked ? "secondary" : "inherit" }>
             Rush Beta
             <Grow in={checked} {...(checked ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
@@ -86,7 +87,7 @@ export default function Navbar() {
               </svg>
             </Grow>
           </Button>
-          <Button onMouseEnter={() => handleChange2()} onMouseLeave={() => handleChange2()} className={classes.fonts} color="inherit">
+          <Button onMouseEnter={() => handleChange2()} onMouseLeave={() => handleChange2()} className={classes.fonts} color={ checked2 ? "secondary" : "inherit" }>
             Calender
             <Grow in={checked2} {...(checked2 ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
@@ -94,7 +95,7 @@ export default function Navbar() {
               </svg>
             </Grow>
           </Button>
-          <Button onMouseEnter={() => handleChange3()} onMouseLeave={() => handleChange3()} className={classes.fonts} color="inherit">
+          <Button onMouseEnter={() => handleChange3()} onMouseLeave={() => handleChange3()} className={classes.fonts} color={ checked3 ? "secondary" : "inherit" }>
             About Us
             <Grow in={checked3} {...(checked3 ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
@@ -105,7 +106,7 @@ export default function Navbar() {
           <Button className={classes.title}>
             <img className={classes.betalogo} src={logo} alt="Beta Logo" />
           </Button>
-          <Button onMouseEnter={() => handleChange4()} onMouseLeave={() => handleChange4()} className={classes.fonts} color="inherit">
+          <Button onMouseEnter={() => handleChange4()} onMouseLeave={() => handleChange4()} className={classes.fonts} color={ checked4 ? "secondary" : "inherit" }>
             Contact
             <Grow in={checked4} {...(checked4 ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
@@ -113,7 +114,7 @@ export default function Navbar() {
               </svg>
             </Grow>
           </Button>
-          <Button onMouseEnter={() => handleChange5()} onMouseLeave={() => handleChange5()} className={classes.fonts} color="inherit">
+          <Button onMouseEnter={() => handleChange5()} onMouseLeave={() => handleChange5()} className={classes.fonts} color={ checked5 ? "secondary" : "inherit" }>
             Alumni
             <Grow in={checked5} {...(checked5 ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
@@ -121,7 +122,7 @@ export default function Navbar() {
               </svg>
             </Grow>
           </Button>
-          <Button onMouseEnter={() => handleChange6()} onMouseLeave={() => handleChange6()} className={classes.fonts} color="inherit">
+          <Button onMouseEnter={() => handleChange6()} onMouseLeave={() => handleChange6()} className={classes.fonts} color={ checked6 ? "secondary" : "inherit" }>
             Parents
             <Grow in={checked6} {...(checked6 ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
