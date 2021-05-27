@@ -6,6 +6,9 @@ import rushvideo from '../images/rushvideo.mp4'
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme) => ({
+    base: {
+      position: "relative",
+    },
     root: {
       width: "100%",
     },
@@ -31,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   export default function Intro() {
     const classes = useStyles();
     return (
-        <Box component="div">
+        <Box className={classes.base} component="div">
             <video className={classes.root} loop autoPlay muted>
               <source src={rushvideo} type="video/mp4" />
             </video>

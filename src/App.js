@@ -22,6 +22,9 @@ const theme = createMuiTheme({
     },
     // Beta Red
     success: {
+      main: "#0085CA",
+    },
+    warning: {
       main: "#AB2328",
     },
   },
