@@ -90,7 +90,7 @@ export default function Navbar() {
             </Grow>
           </Button>
           <Button onMouseEnter={() => handleChange2()} onMouseLeave={() => handleChange2()} className={classes.fonts} color={ checked2 ? "secondary" : "inherit" }>
-            Calender
+            Calendar
             <Grow in={checked2} {...(checked2 ? { timeout: 800 } : {})}>
               <svg className={classes.svg}>
                 <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />

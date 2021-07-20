@@ -65,11 +65,7 @@ export default function Mission() {
       });
 
     return (
-        <div className={classes.root} ref={scroller} onLoad={node => {
-            if (node) {
-                setScrollTarget(scroller.current);
-            }
-        }}>
+        <div className={classes.root} ref={scroller} onLoad={() => {setScrollTarget(scroller.current);}}>
             <Typography className={classes.title} variant="h2" gutterBottom>
                 Our Mission...
             </Typography>
@@ -86,7 +82,6 @@ export default function Mission() {
                 direction="row"
                 justify="center"
                 alignItems="center"
-                className={classes.rows}
             >
                 <Grid item md className={classes.core}>
                     <GroupIcon className={classes.iconColor} />
