@@ -14,8 +14,8 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       position: "absolute",
-      bottom: "100px",
-      left: "120px",
+      bottom: "8%",
+      left: "5%",
       textAlign: "left",
       fontFamily: '"Poppins", sans-serif',
     },
@@ -23,11 +23,29 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: '"Poppins", sans-serif',
       color: "white",
       textShadow: "3px 3px 20px #2f2f2f",
+      [theme.breakpoints.up('md')]: {
+        fontSize: "275%",
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "150%",
+      },
+      [theme.breakpoints.down('xs')]: {
+        fontSize: "75%",
+      },
     },
     middle: {
       fontFamily: '"Poppins", sans-serif',
       color: "#872",
       textShadow: "2px 2px 7px #2f2f2f",
+      [theme.breakpoints.up('md')]: {
+        fontSize: "275%",
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: "150%",
+      },
+      [theme.breakpoints.down('xs')]: {
+        fontSize: "75%",
+      },
     },
   }));
 

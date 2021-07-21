@@ -1,11 +1,19 @@
 import React from 'react';
-//import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Intro from '../components/intro';
 import Mission from '../components/mission';
 import Subsection from '../components/subsections';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        width: "100%",
+    }
+}));
+
 export default function Home() {
+    const classes = useStyles();
     return (
-        <div>
+        <div className={classes.root}>
             <Intro />
             <Mission />
             <Subsection />

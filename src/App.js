@@ -28,6 +28,17 @@ const theme = createMuiTheme({
       main: "#AB2328",
     },
   },
+  typography: {
+    fontFamily: [
+      '"Poppins"',
+      'sans-serif',
+      '"Segoe UI"',
+      'Roboto',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
 });
 function App() {
   return (

@@ -20,18 +20,26 @@ const useStyles = makeStyles((theme) => ({
         color: "#2f2f2f",
         fontFamily: "Poppins, sans-serif",
         textAlign: "left",
-        marginLeft: "8%",
+        marginLeft: "5%",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "250%",
+          },
     },
     subtitle: {
         color: theme.palette.primary.main,
         fontFamily: "Poppins, sans-serif",
         textAlign: "left",
-        marginLeft: "8%",
+        marginLeft: "5%",
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "150%",
+          },
     },
     values: {
         marginTop: "30px",
         fontFamily: "Poppins, sans-serif",
-
+        [theme.breakpoints.down('sm')]: {
+            fontSize: "200%",
+          },
     },
     iconColor: {
         color: theme.palette.secondary.main,

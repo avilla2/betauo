@@ -15,9 +15,10 @@ const useStyles = makeStyles((theme) => ({
     },
     marg: {
         margin: "70px 5% 0 5%",
+        padding: "0 8px",
     },
     head: {
-        fontFamily: '"Poppins", sans-serif',
+        fontFamily: '"Poppins", "sans-serif"',
     },
     card: {
         margin: "10px auto",
@@ -56,6 +57,9 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.warning.main,
         borderColor: theme.palette.warning.main + "!important",
     },
+    buttonRoot: {
+        display: "inline",
+    }
 }));
 
 function CustomCard(props) {
@@ -89,6 +93,7 @@ export default function Subsection() {
                     aria-label="vertical contained primary button group"
                     size="large"
                     variant="text"
+                    classes={{root: classes.buttonRoot}}
                 >
                     <Button className={classes.btnmenu}>Contact Us</Button>
                     <Button className={classes.btnmenu}>Calendar</Button>
@@ -107,7 +112,7 @@ export default function Subsection() {
                     direction="row"
                     justify="center"
                     alignItems="flex-start"
-                    spacing={6}
+                    spacing={4}
                 >
                     <Grid item md={6} lg={4} className={classes.core}>
                         <CustomCard button="Learn More" title="Discover Beta Theta Pi">
