@@ -1,12 +1,13 @@
+import React from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
 import Footer from './components/footer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       // Beta Blue

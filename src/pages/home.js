@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Intro from '../components/intro';
 import Mission from '../components/mission';
 import Subsection from '../components/subsections';
+import Gallery from '../components/gallery'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,6 +17,7 @@ export default function Home() {
         <div className={classes.root}>
             <Intro />
             <Mission />
+            <Gallery />
             <Subsection />
         </div>
     );

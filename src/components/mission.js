@@ -77,18 +77,16 @@ export default function Mission() {
             <Typography className={classes.title} variant="h2" gutterBottom>
                 Our Mission...
             </Typography>
-            <Fade in={trigger} {...(trigger ? { timeout: 3000 } : {})}>
-               <Typography className={classes.subtitle} variant="h4" gutterBottom>
-                  To Develop Men of Principle for a Principled Life
-                </Typography>
-            </Fade>
+            <Typography className={classes.subtitle} variant="h4" gutterBottom>
+                To Develop Men of Principle for a Principled Life
+            </Typography>
             <Typography className={classes.values} variant="h3">
                 Core Values
             </Typography>
             <Grid
                 container
                 direction="row"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <Grid item md className={classes.core}>
@@ -126,7 +124,7 @@ export default function Mission() {
             <Grid
                 container
                 direction="row"
-                justify="center"
+                justifyContent="center"
                 alignItems="center"
             >
                 <Grid item md className={classes.core}>

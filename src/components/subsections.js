@@ -24,8 +24,16 @@ const useStyles = makeStyles((theme) => ({
         margin: "10px auto",
         backgroundColor: theme.palette.common.white,
         padding: "2%",
-        minHeight: "450px",
         position: "relative",
+        [theme.breakpoints.down('sm')]: {
+            minHeight: "380px",
+          },
+        [theme.breakpoints.between('md', 'md')]: {
+            minHeight: "450px",
+          },
+        [theme.breakpoints.up('lg')]: {
+            minHeight: "520px",
+          },
     },
     core: {
         width:"100%",
@@ -110,7 +118,7 @@ export default function Subsection() {
                 <Grid
                     container
                     direction="row"
-                    justify="center"
+                    justifyContent="center"
                     alignItems="flex-start"
                     spacing={4}
                 >

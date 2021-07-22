@@ -31,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
         width: "68%",
         padding: "6px 0",
     },
+    inter: {
+        fontFamily: "Inter, sans-serif",
+
+    }
 }));
 
 export default function Footer() {
@@ -40,7 +44,7 @@ export default function Footer() {
            <Grid
                 container
                 direction="row"
-                justify="space-around"
+                justifyContent="space-around"
                 alignItems="center"
                 spacing={2}
             >
@@ -49,10 +53,10 @@ export default function Footer() {
                 </Grid>
                 <Grid item md={6} className={classes.core}>
                     <div > 
-                        <Typography variant='subtitle1'>  Beta Rho Chapter of Beta Theta Pi </Typography>
-                        <Typography variant='subtitle1'> 1009 Patterson St, Eugene, OR 97401 </Typography>
-                        <Typography variant='subtitle2' gutterBottom>  © 2021, Beta Rho Chapter of Beta Theta Pi. All Rights Reserved.</Typography>
-                        <Typography variant='body2'>  Website Design by <a style={{color: "#2f2f2f"}} href="https://www.alexandrovilla.com">Alexandro Villa</a></Typography>
+                        <Typography className={classes.inter} variant='subtitle1'>  Beta Rho Chapter of Beta Theta Pi </Typography>
+                        <Typography className={classes.inter} variant='subtitle1'> 1009 Patterson St, Eugene, OR 97401 </Typography>
+                        <Typography className={classes.inter} variant='subtitle2' gutterBottom>  © 2021, Beta Rho Chapter of Beta Theta Pi. All Rights Reserved.</Typography>
+                        <Typography className={classes.inter} variant='body2'>  Website Design by <a style={{color: "#2f2f2f"}} href="https://www.alexandrovilla.com">Alexandro Villa</a></Typography>
                     </div>
                 </Grid>
                 <Grid item md={3} className={classes.core}>
@@ -64,7 +68,7 @@ export default function Footer() {
                             <FacebookIcon color="primary" fontSize="large" />
                         </IconButton>
                         <IconButton>
-                            <MailOutlineIcon color="default" fontSize="large" />
+                            <MailOutlineIcon color="inherit" fontSize="large" />
                         </IconButton>
                         <IconButton>
                             <img src={OregonLogo} className={classes.logoStyle} alt="Oregon Logo" />
