@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
         borderColor: theme.palette.warning.main,
     },
     pdf: {
-        width: "80%",
+        maxWidth: 1200,
+        width: "97%",
         marginTop: "20px",
     },
     btnmenu: {
@@ -67,7 +68,10 @@ const useStyles = makeStyles((theme) => ({
     },
     buttonRoot: {
         display: "inline",
-    }
+    },
+    links: {
+        display: "block",
+    },
 }));
 
 function CustomCard(props) {
@@ -96,19 +100,21 @@ export default function Subsection() {
                 <Typography className={classes.head} variant="h2" gutterBottom>
                     Alumni
                 </Typography>
-                <ButtonGroup
-                    color="inherit"
-                    aria-label="vertical contained primary button group"
-                    size="large"
-                    variant="text"
-                    classes={{root: classes.buttonRoot}}
-                >
-                    <Button className={classes.btnmenu}>Contact Us</Button>
-                    <Button className={classes.btnmenu}>Calendar</Button>
-                    <Button className={classes.btnmenu}>Lost Brothers</Button>
-                    <Button className={classes.btnmenu}>Reconnect</Button>
-                    <Button className={classes.btnmenu}>Housing Campaign</Button>
-                </ButtonGroup>
+                <div className={classes.links}>
+                    <ButtonGroup
+                        color="inherit"
+                        aria-label="vertical contained primary button group"
+                        size="large"
+                        variant="text"
+                        classes={{root: classes.buttonRoot}}
+                    >
+                        <Button className={classes.btnmenu}>Contact Us</Button>
+                        <Button className={classes.btnmenu}>Calendar</Button>
+                        <Button className={classes.btnmenu}>Lost Brothers</Button>
+                        <Button className={classes.btnmenu}>Reconnect</Button>
+                        <Button className={classes.btnmenu}>Housing Campaign</Button>
+                    </ButtonGroup>
+                </div>
                 <iframe className={classes.pdf} src={newsletter} title="newsletter" height="800"></iframe>
             </div>
             <div className={classes.marg}>

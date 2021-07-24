@@ -15,6 +15,7 @@ import Drawer from '@material-ui/core/Drawer';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -79,34 +80,19 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Navbar() {
   const classes = useStyles();
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-  });
-  const [checked, setChecked] = useState(false);
-  const [checked2, setChecked2] = useState(false);
-  const [checked3, setChecked3] = useState(false);
-  const [checked4, setChecked4] = useState(false);
-  const [checked5, setChecked5] = useState(false);
-  const [checked6, setChecked6] = useState(false);
+  const trigger = useScrollTrigger({ disableHysteresis: true });
   const [isOpen, setIsOpen] = useState(false);
+  const [state, setState] = useState({ 
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    6: false,
+  });
 
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-  const handleChange2 = () => {
-    setChecked2((prev) => !prev);
-  };
-  const handleChange3 = () => {
-    setChecked3((prev) => !prev);
-  };
-  const handleChange4 = () => {
-    setChecked4((prev) => !prev);
-  };
-  const handleChange5 = () => {
-    setChecked5((prev) => !prev);
-  };
-  const handleChange6 = () => {
-    setChecked6((prev) => !prev);
+  const toggleHover = (anchor, tog) => {
+    setState(state => ({ ...state, [anchor]: tog }));
   };
 
   const toggleDrawer = (open) => (event) => {
@@ -115,6 +101,19 @@ export default function Navbar() {
     }
     setIsOpen(open);
   };
+
+  const NavButton = ({title, anchor, link}) => {
+    return (
+      <Button component={Link} to={link} onMouseEnter={() => toggleHover(anchor,true)} onMouseLeave={() => toggleHover(anchor,false)} className={classes.fonts} color={ state[anchor] ? "secondary" : "inherit" }>
+        {title}
+       <Grow in={state[anchor]} {...(state[anchor] ? { timeout: 800 } : {})}>
+          <svg className={classes.svg}>
+            <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
+          </svg>
+        </Grow>
+      </Button>
+    );
+  }
 
   const MobileDrawer = () => {
     return (
@@ -129,9 +128,14 @@ export default function Navbar() {
             <ListItemText primaryTypographyProps={{"variant": "h5"}} primary="Beta Theta Pi" />
           </ListItem>
           <Divider variant="middle" className={classes.divider} />
-          {['Rush Beta', 'Calendar', 'About Us', 'Contact', 'Alumni', 'Parents'].map((text, index) => (
-            <ListItem button key={index}>
-              <ListItemText className={classes.title} primary={text} />
+          {[{title: 'Rush Beta', link: '/rush-beta'}, 
+            {title: 'Calendar', link: '/calendar'}, 
+            {title: 'About Us', link: '/about-us'},
+            {title: 'Contact', link: '/contact'}, 
+            {title: 'Alumni', link: '/alumni'}, 
+            {title: 'Parents', link: '/parents'}].map((text, index) => (
+            <ListItem button key={index} component={Link} to={text.link}>
+              <ListItemText className={classes.title} primary={text.title} />
             </ListItem>
           ))}
         </List>
@@ -143,57 +147,15 @@ export default function Navbar() {
       <Hidden smDown>
         <AppBar position="fixed" elevation={!trigger ? 0 : 1} color={ !trigger ? "transparent" : "primary" } >
           <Toolbar className={classes.toolbar}>
-            <Button onMouseEnter={() => handleChange()} onMouseLeave={() => handleChange()} className={classes.fonts} color={ checked ? "secondary" : "inherit" }>
-              Rush Beta
-              <Grow in={checked} {...(checked ? { timeout: 800 } : {})}>
-                <svg className={classes.svg}>
-                  <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-                </svg>
-              </Grow>
-            </Button>
-            <Button onMouseEnter={() => handleChange2()} onMouseLeave={() => handleChange2()} className={classes.fonts} color={ checked2 ? "secondary" : "inherit" }>
-              Calendar
-              <Grow in={checked2} {...(checked2 ? { timeout: 800 } : {})}>
-                <svg className={classes.svg}>
-                  <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-                </svg>
-              </Grow>
-            </Button>
-            <Button onMouseEnter={() => handleChange3()} onMouseLeave={() => handleChange3()} className={classes.fonts} color={ checked3 ? "secondary" : "inherit" }>
-              About Us
-              <Grow in={checked3} {...(checked3 ? { timeout: 800 } : {})}>
-                <svg className={classes.svg}>
-                  <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-                </svg>
-              </Grow>
-            </Button>
-            <Button className={classes.title}>
+            <NavButton title="Rush Beta" anchor={1} link="/rush-beta" />
+            <NavButton title="Calendar" anchor={2} link="/calendar" />
+            <NavButton title="About Us" anchor={3} link="/about-us" />
+            <Button href="/" className={classes.title}>
               <img className={classes.betalogo} src={logo} alt="Beta Logo" />
             </Button>
-            <Button onMouseEnter={() => handleChange4()} onMouseLeave={() => handleChange4()} className={classes.fonts} color={ checked4 ? "secondary" : "inherit" }>
-              Contact
-              <Grow in={checked4} {...(checked4 ? { timeout: 800 } : {})}>
-                <svg className={classes.svg}>
-                  <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-                </svg>
-              </Grow>
-            </Button>
-            <Button onMouseEnter={() => handleChange5()} onMouseLeave={() => handleChange5()} className={classes.fonts} color={ checked5 ? "secondary" : "inherit" }>
-              Alumni
-              <Grow in={checked5} {...(checked5 ? { timeout: 800 } : {})}>
-                <svg className={classes.svg}>
-                  <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-                </svg>
-              </Grow>
-            </Button>
-            <Button onMouseEnter={() => handleChange6()} onMouseLeave={() => handleChange6()} className={classes.fonts} color={ checked6 ? "secondary" : "inherit" }>
-              Parents
-              <Grow in={checked6} {...(checked6 ? { timeout: 800 } : {})}>
-                <svg className={classes.svg}>
-                  <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-                </svg>
-              </Grow>
-            </Button>
+            <NavButton title="Contact" anchor={4} link="/contact" />
+            <NavButton title="Alumni" anchor={5} link="/alumni" />
+            <NavButton title="Parents" anchor={6} link="/parents" />
           </Toolbar>
         </AppBar>
       </Hidden>
@@ -210,7 +172,7 @@ export default function Navbar() {
             <Typography variant="h6" className={classes.mobileTitle}>
               Beta Theta Pi
             </Typography>
-            <IconButton edge="end">
+            <IconButton component={Link} to="/" edge="end">
               <img className={classes.mobileLogo}  src={logo} alt="Beta Logo"/>
             </IconButton>
           </Toolbar>

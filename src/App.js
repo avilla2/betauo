@@ -6,6 +6,9 @@ import Footer from './components/footer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import CONTENT_PAGE_QUERY from "./queries/content-page-query";
+import Query from "./components/query";
+import ContentPage from './pages/content-page';
 
 const theme = createTheme({
   palette: {
@@ -45,11 +48,23 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
-        <Navbar />
         <Router>
+        <Navbar />
           <Route path="/" exact component={Home} />
+          <Query query={CONTENT_PAGE_QUERY}>
+            {({ data: { contentPages } }) => {
+                return (
+                    <div>
+                      {contentPages.map((item, key) => (
+                        <Route key={key} path={item.Link} exact render={(props) => (
+                          <ContentPage {...props} />
+                        )} />) )}
+                    </div>
+                  ); 
+            }}
+          </Query>
+          <Footer />
         </Router>
-        <Footer />
       </ThemeProvider>
     </div>
   );
