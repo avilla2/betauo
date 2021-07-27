@@ -147,7 +147,7 @@ export default function Navbar() {
             <NavButton title="Rush Beta" anchor={1} link="/rush-beta" />
             <NavButton title="Calendar" anchor={2} link="/calendar" />
             <NavButton title="About Us" anchor={3} link="/about-us" />
-            <Button href="/" className={classes.title}>
+            <Button component={Link} to="/" className={classes.title}>
               <img className={classes.betalogo} src={logo} alt="Beta Logo" />
             </Button>
             <NavButton title="Contact" anchor={4} link="/contact" />

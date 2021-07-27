@@ -10,7 +10,7 @@ export default function ContentPage(props) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            Content Page
+            <h1>Looks Like This Page is Under Construction</h1>
         </div>
     );
 }
