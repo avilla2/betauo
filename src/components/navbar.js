@@ -52,11 +52,8 @@ const useStyles = makeStyles((theme) => ({
     betalogo: {
       width: "6rem",
     },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
     mobileLogo: {
-      width: "3rem",
+      width: "2.2rem",
     },
     mobileTitle: {
       flexGrow: 1,
@@ -163,17 +160,17 @@ export default function Navbar() {
       <Hidden mdUp>
         <AppBar position="fixed">
           <Toolbar className={classes.mobileNav}>
-            <IconButton edge="start" className={classes.menuButton} onClick={toggleDrawer(true)} color="inherit" aria-label="menu">
-              <MenuIcon />
+          <IconButton component={Link} to="/" edge="start">
+              <img className={classes.mobileLogo}  src={logo} alt="Beta Logo"/>
             </IconButton>
-            <Drawer  anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
+            <Drawer  anchor="right" open={isOpen} onClose={toggleDrawer(false)}>
               <MobileDrawer />
             </Drawer>
             <Typography variant="h6" className={classes.mobileTitle}>
               Beta Theta Pi
             </Typography>
-            <IconButton component={Link} to="/" edge="end">
-              <img className={classes.mobileLogo}  src={logo} alt="Beta Logo"/>
+            <IconButton edge="end" onClick={toggleDrawer(true)} color="inherit" aria-label="menu">
+              <MenuIcon />
             </IconButton>
           </Toolbar>
         </AppBar>

@@ -5,6 +5,9 @@ query Content {
     contentPages {
       Name
       Link
+      Content {
+        __typename
+      }
     }
   }
 `;

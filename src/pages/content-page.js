@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ContentPage() {
+export default function ContentPage(props) {
     const classes = useStyles();
     return (
         <div className={classes.root}>

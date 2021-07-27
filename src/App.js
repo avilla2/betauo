@@ -3,12 +3,13 @@ import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
 import Footer from './components/footer';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import CONTENT_PAGE_QUERY from "./queries/content-page-query";
 import Query from "./components/query";
 import ContentPage from './pages/content-page';
+import NotFoundPage from './pages/not-found-page';
 
 const theme = createTheme({
   palette: {
@@ -49,20 +50,24 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <Router>
-        <Navbar />
-          <Route path="/" exact component={Home} />
-          <Query query={CONTENT_PAGE_QUERY}>
-            {({ data: { contentPages } }) => {
-                return (
-                    <div>
-                      {contentPages.map((item, key) => (
-                        <Route key={key} path={item.Link} exact render={(props) => (
-                          <ContentPage {...props} />
-                        )} />) )}
-                    </div>
-                  ); 
-            }}
-          </Query>
+          <Navbar />
+              <Query query={CONTENT_PAGE_QUERY}>
+                {({ data: { contentPages } }) => {
+                    return (
+                      <Switch>
+                        <Route path="/" exact>
+                          <Home />
+                        </Route>
+                          {contentPages.map((item, key) => (
+                            <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} content={item.Content}/> ) }/>
+                          ))}
+                      <Route>
+                        <NotFoundPage />
+                      </Route>
+                      </Switch>
+                      ); 
+                }}
+              </Query>
           <Footer />
         </Router>
       </ThemeProvider>

@@ -91,7 +91,7 @@ export default function Mission() {
             >
                 <Grid item md className={classes.core}>
                     <GroupIcon className={classes.iconColor} />
-                    <Fade in={trigger} {...(trigger ? { timeout: 3000 } : {})}>
+                    <Fade in={trigger} {...(trigger ? { timeout: 1500 } : {})}>
                         <Typography className={classes.heading} variant="subtitle1" gutterBottom>
                             <strong className={classes.sub}>Mutual Assistance</strong><br />
                             <div className={classes.desc}>
@@ -102,7 +102,7 @@ export default function Mission() {
                 </Grid>
                 <Grid item md className={classes.core}>
                     <EmojiObjectsIcon className={classes.iconColor} />
-                    <Fade in={trigger} {...(trigger ? { timeout: 3000 } : {})}>
+                    <Fade in={trigger} {...(trigger ? { timeout: 1500 } : {})}>
                         <Typography className={classes.heading} variant="subtitle1" gutterBottom>
                             <strong className={classes.sub}>Intellectual Growth</strong><br />
                             <div className={classes.desc}>
@@ -112,7 +112,7 @@ export default function Mission() {
                 </Grid>
                 <Grid item md className={classes.core}>
                     <VpnKeyIcon className={classes.iconColor} />
-                    <Fade in={trigger} {...(trigger ? { timeout: 3000 } : {})}>
+                    <Fade in={trigger} {...(trigger ? { timeout: 1500 } : {})}>
                         <Typography className={classes.heading} variant="subtitle1" gutterBottom>
                             <strong className={classes.sub}>Trust</strong><br />
                             <div className={classes.desc}>
@@ -129,7 +129,7 @@ export default function Mission() {
             >
                 <Grid item md className={classes.core}>
                     <GavelIcon className={classes.iconColor} />
-                    <Fade in={trigger} {...(trigger ? { timeout: 3000 } : {})}>
+                    <Fade in={trigger} {...(trigger ? { timeout: 1500 } : {})}>
                         <Typography className={classes.heading} variant="subtitle1" gutterBottom>
                             <strong className={classes.sub}>Responsible Conduct</strong><br />
                             <div className={classes.desc}>
@@ -139,7 +139,7 @@ export default function Mission() {
                 </Grid>
                 <Grid item md className={classes.core}>
                     <EmojiPeopleIcon className={classes.iconColor} />
-                    <Fade in={trigger} {...(trigger ? { timeout: 3000 } : {})}>
+                    <Fade in={trigger} {...(trigger ? { timeout: 1500 } : {})}>
                         <Typography className={classes.heading} variant="subtitle1" gutterBottom>
                             <strong className={classes.sub}>Integrity</strong><br />
                             <div className={classes.desc}>

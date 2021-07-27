@@ -9,6 +9,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import OregonLogo from '../images/ducklogo.png'
 import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     inter: {
         fontFamily: "Inter, sans-serif",
 
+    },
+    red: {
+        color: theme.palette.warning.main,
     }
 }));
 
@@ -61,16 +65,16 @@ export default function Footer() {
                 </Grid>
                 <Grid item md={3} className={classes.core}>
                     <span>
-                        <IconButton>
+                        <IconButton component={Link} href="https://www.instagram.com/betauo/">
                             <InstagramIcon color="secondary" fontSize="large" />
                         </IconButton>
-                        <IconButton>
+                        <IconButton component={Link} href="https://www.facebook.com/BetaOregon/">
                             <FacebookIcon color="primary" fontSize="large" />
                         </IconButton>
-                        <IconButton>
-                            <MailOutlineIcon color="inherit" fontSize="large" />
+                        <IconButton component={Link} href="mailto:uobetacommunications@gmail.com">
+                            <MailOutlineIcon className={classes.red} color="inherit" fontSize="large" />
                         </IconButton>
-                        <IconButton>
+                        <IconButton component={Link} href="https://www.uoifc.com/">
                             <img src={OregonLogo} className={classes.logoStyle} alt="Oregon Logo" />
                         </IconButton>
                     </span>
