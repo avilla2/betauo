@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Query from "./query";
-import GALLERY_QUERY from "../queries/gallery-query";
+import GALLERY_QUERY from "../queries/galleryQuery";
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 

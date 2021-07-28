@@ -6,10 +6,10 @@ import Footer from './components/footer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
-import CONTENT_PAGE_QUERY from "./queries/content-page-query";
+import CONTENT_PAGE_QUERY from "./queries/contentPageQuery";
 import Query from "./components/query";
-import ContentPage from './pages/content-page';
-import NotFoundPage from './pages/not-found-page';
+import ContentPage from './pages/contentPage';
+import NotFoundPage from './pages/notFoundPage';
 
 const theme = createTheme({
   palette: {
@@ -57,11 +57,11 @@ function App() {
                       <Switch>
                         <Route path="/" exact>
                           <Home />
-                        </Route>
-                          {contentPages.map((item, key) => (
-                            <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} content={item.Content}/> ) }/>
-                          ))}
-                      <Route>
+                            </Route>
+                              {contentPages.map((item, key) => (
+                                <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} name={item.Name} content={item.Content}/> ) }/>
+                              ))}
+                            <Route>
                         <NotFoundPage />
                       </Route>
                       </Switch>
