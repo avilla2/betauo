@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
@@ -13,8 +13,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ContentPage(props) {
+export default function ContentPage({ setPage }) {
     const classes = useStyles();
+    useEffect(() => {
+        setPage("Beta Theta Pi");
+      }, []);
     return (
         <div className={classes.root}>
             <h1>Looks Like your Lost...</h1>

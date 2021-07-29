@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Navbar() {
+export default function Navbar({ page }) {
   const classes = useStyles();
   const trigger = useScrollTrigger({ disableHysteresis: true });
   const [isOpen, setIsOpen] = useState(false);
@@ -121,16 +121,16 @@ export default function Navbar() {
         onKeyDown={toggleDrawer(false)}
       >
         <List>
-          <ListItem button>
+          <ListItem component={Link} to="/" button>
             <ListItemText primaryTypographyProps={{"variant": "h5"}} primary="Beta Theta Pi" />
           </ListItem>
           <Divider variant="middle" className={classes.divider} />
-          {[{title: 'Rush Beta', link: '/rush-beta'}, 
-            {title: 'Calendar', link: '/calendar'}, 
+          {[{title: 'Rush Beta', link: '/rush-beta'},  
             {title: 'About Us', link: '/about-us'},
             {title: 'Contact', link: '/contact'}, 
             {title: 'Alumni', link: '/alumni'}, 
-            {title: 'Parents', link: '/parents'}].map((text, index) => (
+            {title: 'Parents', link: '/parents'},
+            {title: 'MyBeta', link: '/my-beta'},].map((text, index) => (
             <ListItem button key={index} component={Link} to={text.link}>
               <ListItemText className={classes.title} primary={text.title} />
             </ListItem>
@@ -145,14 +145,14 @@ export default function Navbar() {
         <AppBar position="fixed" elevation={!trigger ? 0 : 1} color={ !trigger ? "transparent" : "primary" } >
           <Toolbar className={classes.toolbar}>
             <NavButton title="Rush Beta" anchor={1} link="/rush-beta" />
-            <NavButton title="Calendar" anchor={2} link="/calendar" />
-            <NavButton title="About Us" anchor={3} link="/about-us" />
+            <NavButton title="About Us" anchor={2} link="/about-us" />
+            <NavButton title="Contact" anchor={3} link="/contact" />
             <Button component={Link} to="/" className={classes.title}>
               <img className={classes.betalogo} src={logo} alt="Beta Logo" />
             </Button>
-            <NavButton title="Contact" anchor={4} link="/contact" />
-            <NavButton title="Alumni" anchor={5} link="/alumni" />
-            <NavButton title="Parents" anchor={6} link="/parents" />
+            <NavButton title="Alumni" anchor={4} link="/alumni" />
+            <NavButton title="Parents" anchor={5} link="/parents" />
+            <NavButton title="MyBeta" anchor={6} link="/my-beta" />
           </Toolbar>
         </AppBar>
       </Hidden>
@@ -167,7 +167,7 @@ export default function Navbar() {
               <MobileDrawer />
             </Drawer>
             <Typography variant="h6" className={classes.mobileTitle}>
-              Beta Theta Pi
+              {page}
             </Typography>
             <IconButton edge="end" onClick={toggleDrawer(true)} color="inherit" aria-label="menu">
               <MenuIcon />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Intro from '../components/intro';
 import Mission from '../components/mission';
@@ -11,8 +11,11 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Home() {
+export default function Home({ setPage }) {
     const classes = useStyles();
+    useEffect(() => {
+        setPage("Beta Theta Pi");
+      }, []);
     return (
         <div className={classes.root}>
             <Intro />

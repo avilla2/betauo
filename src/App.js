@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Home from './pages/home';
@@ -46,23 +46,25 @@ const theme = createTheme({
   },
 });
 function App() {
+  const [page, setPage] = useState("Beta Theta Pi");
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <Router>
-          <Navbar />
+          <Navbar page={page}/>
               <Query query={CONTENT_PAGE_QUERY}>
                 {({ data: { contentPages } }) => {
                     return (
                       <Switch>
                         <Route path="/" exact>
-                          <Home />
+                          <Home setPage={setPage} />
                             </Route>
                               {contentPages.map((item, key) => (
-                                <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} name={item.Name} content={item.Content}/> ) }/>
+                                <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} setPage={setPage} name={item.Name} content={item.Content}/> ) }/>
                               ))}
                             <Route>
-                        <NotFoundPage />
+                            <Route path='/my-beta' component={() => { window.location.href = 'https://my.beta.org/ors/portal.aspx'; }}/>
+                        <NotFoundPage setPage={setPage} />
                       </Route>
                       </Switch>
                       ); 
