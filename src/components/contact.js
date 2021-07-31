@@ -91,7 +91,7 @@ export default function Contact({ content }) {
                 })
             })
             .then(response => response.json())
-            .then(data => {
+            .then(createData => {
                 fetch('https://admin.betauo.com/emails/send', {
                     method: 'POST', // or 'PUT'
                     headers: {
@@ -107,12 +107,12 @@ export default function Contact({ content }) {
                     })
                 })
                 .then(response => response.json())
-                .then(data => {
-                    if (data.message) {
+                .then(sendData => {
+                    if (sendData.message) {
                         setStatus("success");
                         setLoading(false);
                         clearForm();
-                    } else if (data.error) {
+                    } else if (sendData.error) {
                         setStatus("failure");
                         setLoading(false);
                     }

@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         height: "29vh",
         minHeight: "225px",
+        maxHeight: "325px",
         position: "relative",
     },
     title: {
