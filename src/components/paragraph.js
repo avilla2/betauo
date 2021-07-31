@@ -3,17 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginBottom: "50px",
-        marginTop: "30px",
+        margin: "40px 0px"
     },
     title: {
         fontFamily: "Inter, sans-serif",
         letterSpacing: 4,
+        margin: "0 10%",
         color: theme.palette.primary.main,
     },
     body: {
         fontFamily: "Inter, sans-serif",
-        padding: "0 10%",
+        padding: "0 5%",
         fontSize: "18px",
         fontWeight: "500",
         lineHeight: "28px",

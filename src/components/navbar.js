@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbar: {
         justifyContent: "center",
-        margin: "0 10%",
+        margin: "0 10% 0 7%;",
         minHeight: 128,
         alignItems: 'center',
         color: 'white',
@@ -99,9 +99,9 @@ export default function Navbar({ page }) {
     setIsOpen(open);
   };
 
-  const NavButton = ({title, anchor, link}) => {
+  const NavButton = ({title, anchor, link, external}) => {
     return (
-      <Button component={Link} to={link} onMouseEnter={() => toggleHover(anchor,true)} onMouseLeave={() => toggleHover(anchor,false)} className={classes.fonts} color={ state[anchor] ? "secondary" : "inherit" }>
+      <Button component={external? "a" : Link} href={link} to={link} onMouseEnter={() => toggleHover(anchor,true)} onMouseLeave={() => toggleHover(anchor,false)} className={classes.fonts} color={ state[anchor] ? "secondary" : "inherit" }>
         {title}
        <Grow in={state[anchor]} {...(state[anchor] ? { timeout: 800 } : {})}>
           <svg className={classes.svg}>
@@ -130,8 +130,8 @@ export default function Navbar({ page }) {
             {title: 'Contact', link: '/contact'}, 
             {title: 'Alumni', link: '/alumni'}, 
             {title: 'Parents', link: '/parents'},
-            {title: 'MyBeta', link: '/my-beta'},].map((text, index) => (
-            <ListItem button key={index} component={Link} to={text.link}>
+            {title: 'MyBeta', link: 'https://my.beta.org/ors/portal.aspx', external: true},].map((text, index) => (
+            <ListItem button key={index} component={text.external ? "a" : Link} href={text.link} to={text.link}>
               <ListItemText className={classes.title} primary={text.title} />
             </ListItem>
           ))}
@@ -152,7 +152,7 @@ export default function Navbar({ page }) {
             </Button>
             <NavButton title="Alumni" anchor={4} link="/alumni" />
             <NavButton title="Parents" anchor={5} link="/parents" />
-            <NavButton title="MyBeta" anchor={6} link="/my-beta" />
+            <NavButton title="MyBeta" anchor={6} link="https://my.beta.org/ors/portal.aspx" external/>
           </Toolbar>
         </AppBar>
       </Hidden>

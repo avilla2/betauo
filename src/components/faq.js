@@ -8,8 +8,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginBottom: "50px",
-        marginTop: "30px",
+        margin: "40px 0px",
     },
     title: {
         fontFamily: "Inter, sans-serif",
@@ -29,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Faq({ content }) {
     const classes = useStyles();
+
     return (
         <div className={classes.root}>
             <h2 className={classes.title}>{content.Title}</h2>

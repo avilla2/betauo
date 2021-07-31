@@ -22,6 +22,12 @@ query Content {
           id
         }
       }
+      ... on ComponentContentPageComponentsForm {
+      	id
+      	Title
+        sendTo
+      	bodyTitle
+    	}
     }
   }
 }

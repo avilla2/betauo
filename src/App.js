@@ -63,7 +63,6 @@ function App() {
                                 <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} setPage={setPage} name={item.Name} content={item.Content}/> ) }/>
                               ))}
                             <Route>
-                            <Route path='/my-beta' component={() => { window.location.href = 'https://my.beta.org/ors/portal.aspx'; }}/>
                         <NotFoundPage setPage={setPage} />
                       </Route>
                       </Switch>

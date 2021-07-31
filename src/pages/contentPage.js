@@ -13,13 +13,14 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.warning.main,
         width: "100%",
         height: "29vh",
+        minHeight: "225px",
         position: "relative",
     },
     title: {
         position: 'absolute',
         color: 'white',
         bottom: 30,
-        left: 32,
+        left: 0,
         right: 0,
     },
 }));
