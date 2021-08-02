@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import ReactMarkdown from 'react-markdown'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,7 +26,7 @@ export default function Paragraph({ content }) {
     return (
         <div className={classes.root}>
             <h2 className={classes.title}>{content.Title}</h2>
-            <p className={classes.body}>{content.Body}</p>
+            <ReactMarkdown className={classes.body}>{content.Body}</ReactMarkdown>
         </div>
     );
 }

@@ -129,7 +129,7 @@ export default function Navbar({ page }) {
             {title: 'About Us', link: '/about-us'},
             {title: 'Contact', link: '/contact'}, 
             {title: 'Alumni', link: '/alumni'}, 
-            {title: 'Parents', link: '/parents'},
+            {title: 'Beta.org', link: 'https://beta.org/', external: true},
             {title: 'MyBeta', link: 'https://my.beta.org/ors/portal.aspx', external: true},].map((text, index) => (
             <ListItem button key={index} component={text.external ? "a" : Link} href={text.link} to={text.link}>
               <ListItemText className={classes.title} primary={text.title} />
@@ -151,7 +151,7 @@ export default function Navbar({ page }) {
               <img className={classes.betalogo} src={logo} alt="Beta Logo" />
             </Button>
             <NavButton title="Alumni" anchor={4} link="/alumni" />
-            <NavButton title="Parents" anchor={5} link="/parents" />
+            <NavButton title="Beta.org" anchor={5} link="https://beta.org/" external/>
             <NavButton title="MyBeta" anchor={6} link="https://my.beta.org/ors/portal.aspx" external/>
           </Toolbar>
         </AppBar>

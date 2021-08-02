@@ -22,11 +22,31 @@ query Content {
           id
         }
       }
-      ... on ComponentContentPageComponentsForm {
+    ... on ComponentContentPageComponentsForm {
       	id
       	Title
-        sendTo
       	bodyTitle
+      	sendTo
+    	}
+    ... on ComponentContentPageComponentsGrid {
+      	id
+      	Title
+      	Entry {
+          id
+          Picture {
+            id
+            url
+          }
+          Caption
+        }
+    	}
+    ... on ComponentContentPageComponentsButtons {
+        id
+        Title
+        Entry {
+          Text
+          Link
+        }
     	}
     }
   }

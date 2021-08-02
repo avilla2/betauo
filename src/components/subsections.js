@@ -112,7 +112,7 @@ export default function Subsection() {
                         variant="text"
                         classes={{root: classes.buttonRoot}}
                     >
-                        <Button component={Link} to="/contact-us" className={classes.btnmenu}>Contact Us</Button>
+                        <Button component={Link} to="/contact" className={classes.btnmenu}>Contact Us</Button>
                         <Button component={Link} to="/calendar" className={classes.btnmenu}>Calendar</Button>
                         <Button href="https://my.beta.org/reports/LostMembers/Lost100195.html" className={classes.btnmenu}>Lost Brothers</Button>
                         <Button href="mailto:baileysweeney@gmail.com" className={classes.btnmenu}>Reconnect</Button>
@@ -145,7 +145,7 @@ export default function Subsection() {
                         </CustomCard>
                     </Grid>
                     <Grid item md={6} lg={4} className={classes.core}>
-                        <CustomCard href="/contact-us" button="Contact Us" title="Contact Our Chapter">
+                        <CustomCard href="/contact" button="Contact Us" title="Contact Our Chapter">
                             To reach a specific member of our executive board or contact the Beta Rho Chapter of BTP please click the link below
                         </CustomCard>
                     </Grid>

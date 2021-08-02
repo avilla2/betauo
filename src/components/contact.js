@@ -88,6 +88,7 @@ export default function Contact({ content }) {
                     "Last": data.last,
                     "Email": data.email,
                     "Body": data.body,
+                    "formName": content.Title,
                 })
             })
             .then(response => response.json())
