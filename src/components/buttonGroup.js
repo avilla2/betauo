@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     btnmenu: {
         color: theme.palette.warning.main,
         borderColor: theme.palette.warning.main + "!important",
-        marginBottom: 10,
+        margin: "10px 10px 0px",
     },
     buttonRoot: {
         display: "inline",
