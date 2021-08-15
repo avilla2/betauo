@@ -17,7 +17,7 @@ export default function ContentPage({ setPage }) {
     const classes = useStyles();
     useEffect(() => {
         setPage("Beta Theta Pi");
-      }, []);
+      });
     return (
         <div className={classes.root}>
             <h1>Looks Like your Lost...</h1>

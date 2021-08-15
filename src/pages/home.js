@@ -15,7 +15,7 @@ export default function Home({ setPage }) {
     const classes = useStyles();
     useEffect(() => {
         setPage("Beta Theta Pi");
-      }, []);
+      });
     return (
         <div className={classes.root}>
             <Intro />

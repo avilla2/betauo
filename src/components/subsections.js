@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import newsletter from "../images/newsletter2021.pdf";
 import { Link } from "react-router-dom";
+import PDF from './pdf';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -58,14 +59,10 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.warning.main,
         borderColor: theme.palette.warning.main,
     },
-    pdf: {
-        maxWidth: 1200,
-        width: "97%",
-        marginTop: "20px",
-    },
     btnmenu: {
         color: theme.palette.warning.main,
         borderColor: theme.palette.warning.main + "!important",
+        marginBottom: 10,
     },
     buttonRoot: {
         display: "inline",
@@ -109,17 +106,15 @@ export default function Subsection() {
                         color="inherit"
                         aria-label="vertical contained primary button group"
                         size="large"
-                        variant="text"
                         classes={{root: classes.buttonRoot}}
                     >
                         <Button component={Link} to="/contact" className={classes.btnmenu}>Contact Us</Button>
-                        <Button component={Link} to="/calendar" className={classes.btnmenu}>Calendar</Button>
                         <Button href="https://my.beta.org/reports/LostMembers/Lost100195.html" className={classes.btnmenu}>Lost Brothers</Button>
                         <Button href="mailto:baileysweeney@gmail.com" className={classes.btnmenu}>Reconnect</Button>
                         <Button href="https://www.legfi.com/app/fundraisers/foreverbetarho/969" className={classes.btnmenu}>Housing Campaign</Button>
                     </ButtonGroup>
                 </div>
-                <iframe className={classes.pdf} src={newsletter} title="newsletter" height="800"></iframe>
+                <PDF src={newsletter} />
             </div>
             <div className={classes.marg}>
                 <Typography className={classes.head} variant="h2" gutterBottom>

@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
     btnmenu: {
         color: theme.palette.warning.main,
         borderColor: theme.palette.warning.main + "!important",
+        marginBottom: 10,
     },
     buttonRoot: {
         display: "inline",
@@ -28,14 +29,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Template({ content }) {
     const classes = useStyles();
-
-    const CustomButton = ({title, link, external}) => {
-        return (
-          <Button component={external? "a" : Link} href={link} to={link} className={classes.btnmenu}>
-            {title}
-          </Button>
-        );
-      }
 
     const isExternal = (text) => {
         if (text.charAt(0) === '/') {
@@ -51,14 +44,15 @@ export default function Template({ content }) {
             <div className={classes.links}>
                 <ButtonGroup
                             color="inherit"
-                            aria-label="vertical contained primary button group"
+                            aria-label=" primary button group"
                             size="large"
-                            variant="text"
                             classes={{root: classes.buttonRoot}}
                         >
                     {content.Entry.map((entry, index) => {
                         return (
-                            <CustomButton key={index} title={entry.Text} link={entry.Link} external={() => isExternal(entry.Link)}/>
+                            <Button key={index} component={isExternal(entry.Link) ? "a" : Link} href={entry.Link} to={entry.Link} className={classes.btnmenu}>
+                                {entry.Text}
+                            </Button>
                         )
                     })}
                 </ButtonGroup>

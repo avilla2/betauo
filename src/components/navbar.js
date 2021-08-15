@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbar: {
         justifyContent: "center",
-        margin: "0 10% 0 7%;",
+        margin: "0 12% 0 11%;",
         minHeight: 128,
         alignItems: 'center',
         color: 'white',
@@ -128,9 +128,7 @@ export default function Navbar({ page }) {
           {[{title: 'Rush Beta', link: '/rush-beta'},  
             {title: 'About Us', link: '/about-us'},
             {title: 'Contact', link: '/contact'}, 
-            {title: 'Alumni', link: '/alumni'}, 
-            {title: 'Beta.org', link: 'https://beta.org/', external: true},
-            {title: 'MyBeta', link: 'https://my.beta.org/ors/portal.aspx', external: true},].map((text, index) => (
+            {title: 'Alumni', link: '/alumni'}].map((text, index) => (
             <ListItem button key={index} component={text.external ? "a" : Link} href={text.link} to={text.link}>
               <ListItemText className={classes.title} primary={text.title} />
             </ListItem>
@@ -146,13 +144,11 @@ export default function Navbar({ page }) {
           <Toolbar className={classes.toolbar}>
             <NavButton title="Rush Beta" anchor={1} link="/rush-beta" />
             <NavButton title="About Us" anchor={2} link="/about-us" />
-            <NavButton title="Contact" anchor={3} link="/contact" />
             <Button component={Link} to="/" className={classes.title}>
               <img className={classes.betalogo} src={logo} alt="Beta Logo" />
             </Button>
+            <NavButton title="Contact" anchor={3} link="/contact" />
             <NavButton title="Alumni" anchor={4} link="/alumni" />
-            <NavButton title="Beta.org" anchor={5} link="https://beta.org/" external/>
-            <NavButton title="MyBeta" anchor={6} link="https://my.beta.org/ors/portal.aspx" external/>
           </Toolbar>
         </AppBar>
       </Hidden>

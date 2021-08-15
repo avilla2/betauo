@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Template({ content }) {
+export default function PictureGrid({ content }) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -32,8 +32,8 @@ export default function Template({ content }) {
             <Grid
                     container
                     direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
+                    justifyContent="space-around"
+                    alignItems="flex-start"
                     spacing={3}
                 >
                     {content.Entry.map((entry, index) => {

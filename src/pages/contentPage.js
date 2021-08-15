@@ -26,20 +26,20 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ContentPage(props) {
+export default function ContentPage({setPage, name, content}) {
     const classes = useStyles();
     useEffect(() => {
-        props.setPage(props.name);
-      }, []);
+        setPage(name);
+      });
     return (
         <div className={classes.root}>
             <Hidden smDown>
                 <Paper elevation={5} className={classes.base} square>
-                    <h1 className={classes.title}>{props.name}</h1>
+                    <h1 className={classes.title}>{name}</h1>
                 </Paper>
             </Hidden>
             <div>
-                {props.content.map((item, index) => {
+                {content.map((item, index) => {
                     return (
                         <GeneratePageContent key={index} content={item}/>
                     );
