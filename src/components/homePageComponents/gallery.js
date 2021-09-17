@@ -18,10 +18,13 @@ const useStyles = makeStyles((theme) => ({
       imageList: {
         width: "100%",
         flexWrap: "nowrap",
-        [theme.breakpoints.up('lg')]: {
+        [theme.breakpoints.up('xl')]: {
             maxHeight: 1400,
           },
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.between('lg','lg')]: {
+            maxHeight: 1000,
+          },
+        [theme.breakpoints.between('sm','md')]: {
             maxHeight: 700,
         },
         [theme.breakpoints.down('xs')]: {
