@@ -18,6 +18,15 @@ const useStyles = makeStyles((theme) => ({
       imageList: {
         width: "100%",
         flexWrap: "nowrap",
+        [theme.breakpoints.up('lg')]: {
+            maxHeight: 1400,
+          },
+        [theme.breakpoints.down('md')]: {
+            maxHeight: 700,
+        },
+        [theme.breakpoints.down('xs')]: {
+            maxHeight: 400,
+        },
       },
 }));
 
@@ -29,7 +38,7 @@ export default function Gallery({ content }) {
         Gallery
      </Typography>
         <div className={classes.gallery}>
-          <ImageList rowHeight={500} className={classes.imageList} cols={2}>
+          <ImageList rowHeight="auto" className={classes.imageList} cols={2}>
               {content.Pictures.map((item) => (
               <ImageListItem key={item.id} cols={item.width >= 800 ? 2 : 1}>
                   <img src={`${process.env.REACT_APP_BACKEND_URL}${item.url}`} alt={item.id} />
