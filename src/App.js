@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
@@ -48,6 +48,9 @@ const theme = createTheme({
 });
 function App() {
   const [page, setPage] = useState("Beta Theta Pi");
+  useEffect(() => {
+    document.title = `${page} | Beta Theta Pi Oregon`
+ }, [page]);
   return (
     <div className="App">
       <ThemeProvider theme={theme}>

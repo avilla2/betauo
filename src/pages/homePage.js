@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 export default function ContentPage({setPage, content}) {
     const classes = useStyles();
     useEffect(() => {
-        setPage("Beta Theta Pi");
+        setPage("ΒΘΠ");
       });
     return (
         <div className={classes.root}>
