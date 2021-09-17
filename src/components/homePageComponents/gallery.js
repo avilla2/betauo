@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: theme.palette.background.paper,
       },
       imageList: {
-        width: 1200,
-        height: 1200,
+        width: "100%",
+        flexWrap: "nowrap",
       },
 }));
 
@@ -29,7 +29,7 @@ export default function Gallery({ content }) {
         Gallery
      </Typography>
         <div className={classes.gallery}>
-          <ImageList rowHeight={500} className={classes.imageList} cols={3}>
+          <ImageList rowHeight={500} className={classes.imageList} cols={2}>
               {content.Pictures.map((item) => (
               <ImageListItem key={item.id} cols={item.width >= 800 ? 2 : 1}>
                   <img src={`${process.env.REACT_APP_BACKEND_URL}${item.url}`} alt={item.id} />

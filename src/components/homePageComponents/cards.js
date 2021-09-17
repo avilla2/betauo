@@ -69,7 +69,7 @@ function CustomCard(props) {
             <Typography className={classes.header} variant="h4" component="h2" align="left" gutterBottom>
                 {props.title}
             </Typography>
-            <Typography className={classes.desc} variant="body1" align="left" component="p">
+            <Typography className={classes.desc} variant="body1" align="left" component="div">
                 {props.children}
             </Typography>
         </CardContent>
