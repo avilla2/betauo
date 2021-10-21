@@ -15,13 +15,11 @@ export default function ContentPage({setPage, content}) {
       });
     return (
         <div className={classes.root}>
-            <div>
-                {content.map((item, index) => {
-                    return (
-                        <GenerateHomeContent key={index} content={item}/>
-                    );
-                })}
-            </div>
+            {content.map((item, index) => {
+                return (
+                    <GenerateHomeContent key={index} content={item}/>
+                );
+            })}
         </div>
     );
 }

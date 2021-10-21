@@ -11,3 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+}
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes backwardspin {
+  from {
+    transform:rotate(0deg);
+}
+  to {
+    transform:rotate(-360deg);
+  }
+}
+
+#loading {
+  margin-top: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#loadingframe{
+  transform-origin: center;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+#svgframe {
+  position: relative;
+}
+
+#betalogo {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  left: 75px;
+  top: 75px;
+  animation-name: backwardspin;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
