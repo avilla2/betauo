@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 const HOME_PAGE_QUERY = gql`
 query Home {
   homepage {
+    PageName
     Content {
       __typename
       ... on ComponentHomePageComponentsIntro {
