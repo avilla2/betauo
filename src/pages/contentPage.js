@@ -15,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
         height: "29vh",
         minHeight: "225px",
         maxHeight: "325px",
-        position: "relative",
+        position: "fixed",
+        zIndex: -99,
     },
     title: {
         position: 'absolute',
@@ -23,6 +24,13 @@ const useStyles = makeStyles((theme) => ({
         bottom: 30,
         left: 0,
         right: 0,
+    },
+    page: {
+        [theme.breakpoints.up('md')]: {
+            marginTop: '255px',
+            backgroundColor: 'white',
+            paddingTop: '5px',
+        },
     },
 }));
 
@@ -34,11 +42,11 @@ export default function ContentPage({setPage, name, content}) {
     return (
         <div className={classes.root}>
             <Hidden smDown>
-                <Paper elevation={5} className={classes.base} square>
+                <Paper elevation={0} className={classes.base} square>
                     <h1 className={classes.title}>{name}</h1>
                 </Paper>
             </Hidden>
-            <div>
+            <div className={classes.page}>
                 {content.map((item, index) => {
                     return (
                         <GeneratePageContent key={index} content={item}/>

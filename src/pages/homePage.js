@@ -8,10 +8,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function ContentPage({setPage, content}) {
+export default function ContentPage({setPage, content, pageName}) {
     const classes = useStyles();
     useEffect(() => {
-        setPage("ΒΘΠ");
+        setPage(pageName);
       });
     return (
         <div className={classes.root}>

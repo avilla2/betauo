@@ -11,6 +11,7 @@ import Query from "./components/utils/query";
 import ContentPage from './pages/contentPage';
 import HomePage from './pages/homePage';
 import NotFoundPage from './pages/notFoundPage';
+import NAVBAR_QUERY from './queries/navbarQuery';
 
 const theme = createTheme({
   palette: {
@@ -55,30 +56,36 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <Router>
-          <Navbar page={page}/>
-            <Query query={CONTENT_PAGE_QUERY}>
-              {({ data: { contentPages } }) => {
-                return (
-                  <Switch>
-                    {contentPages.map((item, key) => (
-                      <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} setPage={setPage} name={item.Name} content={item.Content}/> ) }/>
-                    ))}
-                    <Query query={HOME_PAGE_QUERY}>
-                      {({ data: { homepage } }) => {
-                        return (
-                            <Route path="/" exact>
-                              <HomePage setPage={setPage} content={homepage.Content}/>
-                            </Route>
-                        ); 
-                      }}
-                    </Query>
-                    <Route>
-                      <NotFoundPage setPage={setPage} />
-                    </Route>
-                  </Switch>
-                ); 
-              }}
-            </Query>
+          <Query query={NAVBAR_QUERY}>
+            {({ data: { navbar } }) => {
+              return (
+                <Navbar content={navbar.Items} mobileData={navbar.MobileConfig} page={page}/>
+              )
+            }}
+          </Query>  
+          <Query query={CONTENT_PAGE_QUERY}>
+            {({ data: { contentPages } }) => {
+              return (
+                <Switch>
+                  {contentPages.map((item, key) => (
+                    <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} setPage={setPage} name={item.Name} content={item.Content}/> ) }/>
+                  ))}
+                  <Query query={HOME_PAGE_QUERY}>
+                    {({ data: { homepage } }) => {
+                      return (
+                          <Route path="/" exact>
+                            <HomePage setPage={setPage} pageName={homepage.PageName} content={homepage.Content}/>
+                          </Route>
+                      ); 
+                    }}
+                  </Query>
+                  <Route>
+                    <NotFoundPage setPage={setPage} />
+                  </Route>
+                </Switch>
+              ); 
+            }}
+          </Query>
           <Footer />
         </Router>
       </ThemeProvider>

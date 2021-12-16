@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
-import Grow from '@material-ui/core/Grow';
-import logo from '../images/betalogo2.png';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { Hidden } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,7 +16,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 import { Link } from "react-router-dom";
 
-// I am modifying
 const useStyles = makeStyles((theme) => ({
     offset: theme.mixins.toolbar,
     root: {
@@ -34,20 +32,10 @@ const useStyles = makeStyles((theme) => ({
     },
     fonts: {
         fontFamily: '"Poppins", sans-serif',
-        fontSize: "16px",
         flexGrow: 1,
-        textShadow: "4px 4px 15px #2f2f2f",
     },
-    svg: {
-      width: 100,
-      height: 100,
-      position: "absolute",
-      top: "0rem",
-    },
-    polygon: {
-      fillOpacity:0,
-      stroke: theme.palette.secondary.main,
-      strokeWidth: 3,
+    hovered: {
+        color: theme.palette.secondary.main,
     },
     betalogo: {
       width: "6rem",
@@ -75,23 +63,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Navbar({ page }) {
+export default function Navbar({ page, content, mobileData }) {
   const classes = useStyles();
   const trigger = useScrollTrigger({ disableHysteresis: true });
   const [isOpen, setIsOpen] = useState(false);
-  const [state, setState] = useState({ 
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-  });
-
-  const toggleHover = (anchor, tog) => {
-    setState(state => ({ ...state, [anchor]: tog }));
-  };
-
+  const [active, setActive] = useState(-1)
   const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -99,20 +75,36 @@ export default function Navbar({ page }) {
     setIsOpen(open);
   };
 
-  const NavButton = ({title, anchor, link, external}) => {
+  const isExternal = (text) => {
+    if (text.charAt(0) === '/') {
+        return false;
+    } else {
+        return true;
+    }
+  }
+
+  const NavButton = ({title, link, external, id}) => {
     return (
-      <Button component={external? "a" : Link} href={link} to={link} onMouseEnter={() => toggleHover(anchor,true)} onMouseLeave={() => toggleHover(anchor,false)} className={classes.fonts} color={ state[anchor] ? "secondary" : "inherit" }>
-        {title}
-       <Grow in={state[anchor]} {...(state[anchor] ? { timeout: 800 } : {})}>
-          <svg className={classes.svg}>
-            <rect x="-5" y="2" width="120" height="35" className={classes.polygon} />
-          </svg>
-        </Grow>
+      <ButtonBase component={external? "a" : Link} onClick={() => setActive(id)} href={link} to={link} className={`${classes.fonts} link`} color="inherit">
+        <span className={`mask ${active === id? 'active' : ''}`}>
+          <div className={`link-container ${active === id? 'active' : ''}`}>
+            <span className={`link-title1 title ${active === id? 'active' : ''}`}>{title}</span>
+            <span className={`${classes.hovered} link-title2 title ${active === id? 'active' : ''}`}>{title}</span>
+          </div>
+        </span>
+      </ButtonBase>
+    );
+  }
+
+  const NavButtonIcon = ({link, external, src, alt, id}) => {
+    return (
+      <Button onClick={() => setActive(id)} component={external? "a" : Link} href={link} to={link} className={classes.title}>
+        <img className={classes.betalogo} src={src} alt={alt} />
       </Button>
     );
   }
 
-  const MobileDrawer = () => {
+  const MobileDrawer = ({ links, drawerLink, drawerText }) => {
     return (
       <div
         className={classes.mobileDrawer}
@@ -121,17 +113,18 @@ export default function Navbar({ page }) {
         onKeyDown={toggleDrawer(false)}
       >
         <List>
-          <ListItem component={Link} to="/" button>
-            <ListItemText primaryTypographyProps={{"variant": "h5"}} primary="Beta Theta Pi" />
+          <ListItem onClick={() => setActive(-1)} component={Link} to={drawerLink} button>
+            <ListItemText primaryTypographyProps={{"variant": "h5"}} primary={drawerText} />
           </ListItem>
           <Divider variant="middle" className={classes.divider} />
-          {[{title: 'Rush Beta', link: '/rush-beta'},  
-            {title: 'About Us', link: '/about-us'},
-            {title: 'Contact', link: '/contact'}, 
-            {title: 'Alumni', link: '/alumni'}].map((text, index) => (
-            <ListItem button key={index} component={text.external ? "a" : Link} href={text.link} to={text.link}>
-              <ListItemText className={classes.title} primary={text.title} />
-            </ListItem>
+          {links.map((item, key) => (
+            item.__typename === 'ComponentNavbarComponentsTextLink' ?
+              <div key={key}>
+                <ListItem button onClick={() => setActive(key)} component={isExternal(item.Link) ? "a" : Link} href={item.Link} to={item.Link}>
+                  <ListItemText className={`${classes.title} ${active === key? classes.hovered : ''}`} primary={item.Title} />
+                </ListItem>
+              </div>
+            : <></>
           ))}
         </List>
       </div>
@@ -139,28 +132,31 @@ export default function Navbar({ page }) {
 
   return (
     <div className={classes.root}>
+
+      {/* Desktop Navbar */}
       <Hidden smDown>
         <AppBar position="fixed" elevation={!trigger ? 0 : 1} color={ !trigger ? "transparent" : "primary" } >
           <Toolbar className={classes.toolbar}>
-            <NavButton title="Rush Beta" anchor={1} link="/rush-beta" />
-            <NavButton title="About Us" anchor={2} link="/about-us" />
-            <Button component={Link} to="/" className={classes.title}>
-              <img className={classes.betalogo} src={logo} alt="Beta Logo" />
-            </Button>
-            <NavButton title="Contact" anchor={3} link="/contact" />
-            <NavButton title="Alumni" anchor={4} link="/alumni" />
+            {content.map((item, key) => {
+                return (
+                  item.__typename === 'ComponentNavbarComponentsTextLink' ? 
+                  <NavButton key={key} id={key} external={isExternal(item.Link)} title={item.Title} link={item.Link} /> : 
+                  <NavButtonIcon key={key} id={key} link={item.Link} src={`${process.env.REACT_APP_BACKEND_URL}${item.Image.url}`} alt={item.Image.name} />
+                )
+            })}
           </Toolbar>
         </AppBar>
       </Hidden>
 
+      {/* Mobile Navbar */}
       <Hidden mdUp>
         <AppBar position="fixed">
           <Toolbar className={classes.mobileNav}>
-          <IconButton component={Link} to="/" edge="start">
-              <img className={classes.mobileLogo}  src={logo} alt="Beta Logo"/>
+            <IconButton onClick={() => setActive(-1)} component={Link} to="/" edge="start">
+              <img className={classes.mobileLogo}  src={`${process.env.REACT_APP_BACKEND_URL}${mobileData.MobileIcon.url}`} alt="Logo"/>
             </IconButton>
-            <Drawer  anchor="right" open={isOpen} onClose={toggleDrawer(false)}>
-              <MobileDrawer />
+            <Drawer anchor="right" open={isOpen} onClose={toggleDrawer(false)}>
+              <MobileDrawer links={content} drawerLink={mobileData.DrawerLink} drawerText={mobileData.DrawerText} />
             </Drawer>
             <Typography variant="h6" className={classes.mobileTitle}>
               {page}

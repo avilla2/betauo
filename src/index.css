@@ -58,3 +58,72 @@ code {
   animation-duration: 20s;
   animation-iteration-count: infinite;
 }
+
+.link {
+  height: 30px;
+  align-items: center;
+  text-decoration: none;
+  display: flex;
+}
+
+/* Hide extra text */
+.mask {
+  position: relative;
+  padding: 0;
+  height: 20px;
+
+  /*  Remove overflow to see how it works　:) */
+  overflow: hidden;
+}
+
+.link-container {
+  transition: transform 0.4s ease;
+  padding: 0 5px;
+}
+
+.title {
+  display: block;
+  /*  Set same font-size and line height  */
+  font-size: 18px;
+  line-height: 18px;
+
+  transition: transform 0.4s ease;
+}
+
+.link-title1 {
+  transform-origin: right center;
+  text-shadow: 1px 1px 3px #2f2f2f;
+}
+
+.link-title2 {
+  transform-origin: left center;
+  transform: rotate(20deg);
+}
+
+/* Hover Action*/
+
+/* Move up two texts (20px = font-size) */
+.link:hover .link-container {
+  transform: translateY(-18px);
+}
+
+/* Rotate texts a little bit */
+.link:hover .link-title1 {
+  transform: rotate(20deg);
+}
+
+.link:hover .link-title2 {
+  transform: rotate(0);
+}
+
+.link-container.active {
+  transform: translateY(-18px);
+}
+
+.link-title1.active {
+  transform: rotate(20deg);
+}
+
+.link-title2.active {
+  transform: rotate(0);
+}
