@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Navbar from './components/navbar';
-import Footer from './components/footer';
+import Navbar from './pageElements/navbar';
+import Footer from './pageElements/footer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -12,6 +12,7 @@ import ContentPage from './pages/contentPage';
 import HomePage from './pages/homePage';
 import NotFoundPage from './pages/notFoundPage';
 import NAVBAR_QUERY from './queries/navbarQuery';
+import FOOTER_QUERY from './queries/footerQuery';
 
 const theme = createTheme({
   palette: {
@@ -27,10 +28,11 @@ const theme = createTheme({
       // Beta Gray
       main: "#D9D9D6",
     },
-    // Beta Red
+    // Oregon Green
     success: {
       main: "#0085CA",
     },
+    // Beta Red
     warning: {
       main: "#AB2328",
     },
@@ -86,7 +88,13 @@ function App() {
               ); 
             }}
           </Query>
-          <Footer />
+          <Query query={FOOTER_QUERY}>
+            {({ data: { footer } }) => {
+              return (
+                <Footer content={footer.Content} />
+              )
+            }}
+          </Query> 
         </Router>
       </ThemeProvider>
     </div>

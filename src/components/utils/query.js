@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import LoadingSVG from "../loading";
+import LoadingSVG from "./loading";
 
 const Query = ({ children, query, slug }) => {
   const { data, loading, error } = useQuery(query, {

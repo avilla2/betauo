@@ -37,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
     hovered: {
         color: theme.palette.secondary.main,
     },
-    betalogo: {
-      width: "6rem",
-    },
     mobileLogo: {
       width: "2.2rem",
     },
@@ -96,10 +93,10 @@ export default function Navbar({ page, content, mobileData }) {
     );
   }
 
-  const NavButtonIcon = ({link, external, src, alt, id}) => {
+  const NavButtonIcon = ({link, external, src, alt, id, width}) => {
     return (
       <Button onClick={() => setActive(id)} component={external? "a" : Link} href={link} to={link} className={classes.title}>
-        <img className={classes.betalogo} src={src} alt={alt} />
+        <img width={width ? width : 80} src={src} alt={alt} />
       </Button>
     );
   }
@@ -141,7 +138,7 @@ export default function Navbar({ page, content, mobileData }) {
                 return (
                   item.__typename === 'ComponentNavbarComponentsTextLink' ? 
                   <NavButton key={key} id={key} external={isExternal(item.Link)} title={item.Title} link={item.Link} /> : 
-                  <NavButtonIcon key={key} id={key} link={item.Link} src={`${process.env.REACT_APP_BACKEND_URL}${item.Image.url}`} alt={item.Image.name} />
+                  <NavButtonIcon key={key} id={key} width={item.Width} link={item.Link} src={`${process.env.REACT_APP_BACKEND_URL}${item.Image.url}`} alt={item.Image.name} />
                 )
             })}
           </Toolbar>
@@ -152,7 +149,7 @@ export default function Navbar({ page, content, mobileData }) {
       <Hidden mdUp>
         <AppBar position="fixed">
           <Toolbar className={classes.mobileNav}>
-            <IconButton onClick={() => setActive(-1)} component={Link} to="/" edge="start">
+            <IconButton onClick={() => setActive(-1)} component={Link} to={mobileData.IconLink} edge="start">
               <img className={classes.mobileLogo}  src={`${process.env.REACT_APP_BACKEND_URL}${mobileData.MobileIcon.url}`} alt="Logo"/>
             </IconButton>
             <Drawer anchor="right" open={isOpen} onClose={toggleDrawer(false)}>

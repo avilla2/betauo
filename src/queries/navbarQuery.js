@@ -18,6 +18,7 @@ query Navbar {
           name
         }
         Link
+        Width
       }
     }
     MobileConfig {
@@ -28,6 +29,7 @@ query Navbar {
       }
       DrawerText
       DrawerLink
+      IconLink
     }
   }
 }
