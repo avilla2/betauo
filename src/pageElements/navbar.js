@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     },
     toolbar: {
         justifyContent: "center",
-        margin: "0 12% 0 11%;",
+        margin: "0 13% 0 10.5%;",
         minHeight: 128,
         alignItems: 'center',
         color: 'white',

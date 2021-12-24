@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.warning.main,
     },
     Green: {
-        color: "#004F39",
+        color: theme.palette.success.main,
     },
     Gold: {
         color: theme.palette.secondary.main,

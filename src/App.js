@@ -13,6 +13,7 @@ import HomePage from './pages/homePage';
 import NotFoundPage from './pages/notFoundPage';
 import NAVBAR_QUERY from './queries/navbarQuery';
 import FOOTER_QUERY from './queries/footerQuery';
+import LoginPage from './pages/loginPage';
 
 const theme = createTheme({
   palette: {
@@ -30,7 +31,7 @@ const theme = createTheme({
     },
     // Oregon Green
     success: {
-      main: "#0085CA",
+      main: "#004F39",
     },
     // Beta Red
     warning: {
@@ -68,23 +69,26 @@ function App() {
           <Query query={CONTENT_PAGE_QUERY}>
             {({ data: { contentPages } }) => {
               return (
-                <Switch>
-                  {contentPages.map((item, key) => (
-                    <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} setPage={setPage} name={item.Name} content={item.Content}/> ) }/>
-                  ))}
                   <Query query={HOME_PAGE_QUERY}>
                     {({ data: { homepage } }) => {
                       return (
+                        <Switch>
+                          {contentPages.map((item, key) => (
+                            <Route key={key} path={item.Link} render={ props => ( <ContentPage {...props} setPage={setPage} name={item.Name} content={item.Content}/> ) }/>
+                          ))}
                           <Route path="/" exact>
                             <HomePage setPage={setPage} pageName={homepage.PageName} content={homepage.Content}/>
                           </Route>
+                          <Route path="/login">
+                            <LoginPage setPage={setPage} />
+                          </Route>
+                          <Route>
+                            <NotFoundPage setPage={setPage} />
+                          </Route>
+                        </Switch>
                       ); 
                     }}
                   </Query>
-                  <Route>
-                    <NotFoundPage setPage={setPage} />
-                  </Route>
-                </Switch>
               ); 
             }}
           </Query>
