@@ -193,7 +193,6 @@ export default function LoginPage({setPage, setToken}) {
             brother: user?.id
         })
         .then(response => {
-            console.log(response.data.user)
             setError(prevError => ({...prevError, brother: null}))
             return response.data.user;
         })
@@ -209,14 +208,12 @@ export default function LoginPage({setPage, setToken}) {
         .get(`${process.env.REACT_APP_BACKEND_URL}/brothers?RoleNumber=${roleNum}&UOID=${uoid}`)
         .then(response => {
             // Handle success.
-            console.log(response.data);
             let info = response.data.length !== 0? response.data[0] : 'error';
             setUser(info);
             return info
         })
         .catch(error => {
             // Handle error.
-            console.log(error);
             setUser('error')
             return null
         });
