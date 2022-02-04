@@ -14,6 +14,9 @@ import NotFoundPage from './pages/notFoundPage';
 import NAVBAR_QUERY from './queries/navbarQuery';
 import FOOTER_QUERY from './queries/footerQuery';
 import LoginPage from './pages/loginPage';
+import RestrictedRoute from './components/utils/restrictedRoute';
+import AppHomePage from './pages/appHomePage';
+import NewAccountPage from './pages/newAccount';
 
 const theme = createTheme({
   palette: {
@@ -50,16 +53,12 @@ const theme = createTheme({
     ].join(','),
   },
 });
-function App() {
-  const [page, setPage] = useState("Beta Theta Pi");
-  useEffect(() => {
-    document.title = `${page} | Beta Theta Pi Oregon`
- }, [page]);
+
+
+const RegularRoutes = ({page, setPage}) => {
   return (
-    <div className="App">
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Query query={NAVBAR_QUERY}>
+    <>
+      <Query query={NAVBAR_QUERY}>
             {({ data: { navbar } }) => {
               return (
                 <Navbar content={navbar.Items} mobileData={navbar.MobileConfig} page={page}/>
@@ -98,11 +97,63 @@ function App() {
                 <Footer content={footer.Content} />
               )
             }}
-          </Query> 
+          </Query>
+    </>
+  )
+}
+
+const AppRoutes = ({page, setPage, token, setToken}) => {
+  const [valid, setValid] = useState(false);
+
+  const PrivateRoute = (props) => {
+    return (
+      <RestrictedRoute {...props} token={token} valid={valid} setValid={setValid}>
+        {props.children}
+      </RestrictedRoute>
+    )
+  }
+
+  return (
+    <>
+      <Switch>
+        <Route path='/app/login'>
+          <LoginPage setPage={setPage} setToken={setToken}/>
+        </Route>
+        <Route path='/app/create-account'>
+          <NewAccountPage setPage={setPage} />
+        </Route>
+        <PrivateRoute path='/app/home'>
+          <AppHomePage setPage={setPage} />
+        </PrivateRoute>
+        <Route>
+          <NotFoundPage setPage={setPage} />
+        </Route>
+      </Switch>
+    </>
+  )
+}
+
+export default function App() {
+  const [page, setPage] = useState("Beta Theta Pi");
+  const [token, setToken] = useState('')
+
+  useEffect(() => {
+    document.title = `${page} | Beta Theta Pi Oregon`
+  }, [page]);
+  return (
+    <div className="App">
+      <ThemeProvider theme={theme}>
+        <Router>
+          <Switch>
+            <Route path='/app'>
+              <AppRoutes setPage={setPage} page={page} token={token} setToken={setToken} />
+            </Route>
+            <Route>
+              <RegularRoutes setPage={setPage} page={page} />
+            </Route>
+          </Switch>
         </Router>
       </ThemeProvider>
     </div>
   );
 }
-
-export default App;

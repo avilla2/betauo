@@ -78,7 +78,7 @@ export default function Contact({ content }) {
 
         if (regex.test(data.email)) {
             setLoading(true);
-            fetch('https://admin.betauo.com/emails/create', {
+            fetch(`${process.env.REACT_APP_BACKEND_URL}/emails/create`, {
                 method: 'POST', // or 'PUT'
                 headers: {
                     "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export default function Contact({ content }) {
             })
             .then(response => response.json())
             .then(createData => {
-                fetch('https://admin.betauo.com/emails/send', {
+                fetch(`${process.env.REACT_APP_BACKEND_URL}/emails/send`, {
                     method: 'POST', // or 'PUT'
                     headers: {
                         "Content-Type": "application/json",

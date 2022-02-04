@@ -9,7 +9,9 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
   <>
     <ApolloProvider client={client}>
-      <App />
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
     </ApolloProvider>
   </>,
   document.getElementById('root')

@@ -121,7 +121,7 @@ export default function Navbar({ page, content, mobileData }) {
                   <ListItemText className={`${classes.title} ${active === key? classes.hovered : ''}`} primary={item.Title} />
                 </ListItem>
               </div>
-            : <></>
+            : null
           ))}
         </List>
       </div>
