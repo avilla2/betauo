@@ -74,6 +74,46 @@ query Home {
         id
         Text
       }
+      ... on ComponentContentPageComponentsParagraph {
+        id
+        Title
+        Body
+      }
+      ... on ComponentContentPageComponentsFaq {
+        id
+        Title
+        Entry {
+          Title
+          Body
+          id
+        }
+      }
+    	... on ComponentContentPageComponentsForm {
+      	id
+      	Title
+      	bodyTitle
+      	sendTo
+    	}
+    	... on ComponentContentPageComponentsGrid {
+      	id
+      	Title
+      	Entry {
+          id
+          Picture {
+            id
+            url
+          }
+          Caption
+        }
+    	}
+    	... on ComponentContentPageComponentsButtons {
+        id
+        Title
+        Entry {
+          Text
+          Link
+        }
+    	}
     }
   }
 }
