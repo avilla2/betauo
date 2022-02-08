@@ -9,12 +9,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         margin: "40px 5% 40px 5%",
     },
-    title: {
-        fontFamily: "Inter, sans-serif",
-        letterSpacing: 4,
-        margin: "0 10%",
-        color: theme.palette.primary.main,
-    },
     input: {
         margin: "0px 5px 20px 5px",
     },
@@ -137,7 +131,6 @@ export default function Contact({ content }) {
  
     return (
         <div className={classes.root}>
-            <h2 className={classes.title}>{content.Title}</h2>
             <form className={classes.root} noValidate autoComplete="off">
                 <Grid
                     container

@@ -8,12 +8,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         margin: "40px 10% 40px 10%",
     },
-    title: {
-        fontFamily: "Inter, sans-serif",
-        letterSpacing: 4,
-        margin: "5% 10%",
-        color: theme.palette.primary.main,
-    },
     btnmenu: {
         color: theme.palette.warning.main,
         borderColor: theme.palette.warning.main + "!important",
@@ -40,7 +34,6 @@ export default function Template({ content }) {
 
     return (
         <div className={classes.root}>
-            <h2 className={classes.title}>{content.Title}</h2>
             <div className={classes.links}>
                 <ButtonGroup
                             color="inherit"

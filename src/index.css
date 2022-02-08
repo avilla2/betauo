@@ -70,7 +70,7 @@ code {
 .mask {
   position: relative;
   padding: 0;
-  height: 20px;
+  height: 18px;
 
   /*  Remove overflow to see how it works　:) */
   overflow: hidden;
@@ -84,8 +84,8 @@ code {
 .title {
   display: block;
   /*  Set same font-size and line height  */
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 16px;
 
   transition: transform 0.4s ease;
 }
@@ -104,12 +104,12 @@ code {
 
 /* Move up two texts (20px = font-size) */
 .link:hover .link-container {
-  transform: translateY(-18px);
+  transform: translateY(-16px);
 }
 
 /* Rotate texts a little bit */
 .link:hover .link-title1 {
-  transform: rotate(20deg);
+  transform: rotate(18deg);
 }
 
 .link:hover .link-title2 {
@@ -117,11 +117,11 @@ code {
 }
 
 .link-container.active {
-  transform: translateY(-18px);
+  transform: translateY(-16px);
 }
 
 .link-title1.active {
-  transform: rotate(20deg);
+  transform: rotate(18deg);
 }
 
 .link-title2.active {

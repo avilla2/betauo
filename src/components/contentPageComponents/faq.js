@@ -10,11 +10,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         margin: "40px 0px",
     },
-    title: {
-        fontFamily: "Inter, sans-serif",
-        letterSpacing: 4,
-        color: theme.palette.primary.main,
-    },
     accordion: {
         margin: "0 10%"
     },
@@ -31,7 +26,6 @@ export default function Faq({ content }) {
 
     return (
         <div className={classes.root}>
-            <h2 className={classes.title}>{content.Title}</h2>
                 <div className={classes.accordion}>
                     {content.Entry.map((entry, index) => {
                         return (

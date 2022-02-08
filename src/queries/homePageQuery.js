@@ -33,7 +33,7 @@ query Home {
       }
     	... on ComponentHomePageComponentsTextGrid {
       	id
-      	Title
+      	MainTitle
         Subtitle
         Header
         Entry {

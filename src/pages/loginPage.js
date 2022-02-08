@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
         padding: ' 2% 4%',
         margin: '0 auto',
         [theme.breakpoints.down('sm')]: {
-            color: 'red'
+            width: '90%',
           },
         [theme.breakpoints.between('md', 'md')]: {
             maxWidth: "550px",
@@ -133,7 +133,7 @@ export default function LoginPage({setPage, setToken}) {
                     <img className={classes.logo} src={BetaIcon} alt='Beta Theta Pi Icon' />
                     <Typography variant='h5' color='primary' className={classes.title}>Sign in to BetaRhoOnline</Typography>
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={12} sm={9}>
                     <Paper elevation={6} className={classes.prompt}>
                             <TextField error={error} value={username} onChange={(event) => { setUsername(event.target.value); setError(false)}} className={classes.input} fullWidth variant="outlined" label="Email" />
                             <TextField error={error} helperText={error ? 'Username or Password is Incorrect' : null} value={password} onChange={(event) => { setPassword(event.target.value); setError(false)}} className={classes.input} fullWidth variant="outlined" label="Password" type="password"/>

@@ -66,7 +66,7 @@ export default function Mission({ content }) {
     return (
         <div className={classes.root} ref={scroller} onLoad={() => {setScrollTarget(scroller.current);}}>
             <Typography className={classes.title} variant="h2" gutterBottom>
-                {content.Title}
+                {content.MainTitle}
             </Typography>
             <Typography className={classes.subtitle} variant="h4" gutterBottom>
                 {content.Subtitle}

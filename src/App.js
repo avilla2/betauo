@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Navbar from './pageElements/navbar';
-import Footer from './pageElements/footer';
+import Navbar from './components/pageElements/navbar';
+import Footer from './components/pageElements/footer';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';

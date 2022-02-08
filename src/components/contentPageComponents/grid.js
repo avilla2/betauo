@@ -7,12 +7,6 @@ const useStyles = makeStyles((theme) => ({
     root: {
         margin: "40px 10% 40px 10%",
     },
-    title: {
-        fontFamily: "Inter, sans-serif",
-        letterSpacing: 4,
-        margin: "5% 10%",
-        color: theme.palette.primary.main,
-    },
     image: {
        width: "95%",
     },
@@ -28,7 +22,6 @@ export default function PictureGrid({ content }) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <h2 className={classes.title}>{content.Title}</h2>
             <Grid
                     container
                     direction="row"

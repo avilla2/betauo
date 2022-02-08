@@ -38,7 +38,12 @@ const useStyles = makeStyles((theme) => ({
     prompt: {
         padding: ' 2% 4%',
         margin: '0 auto',
-        maxWidth: "1000px",
+        [theme.breakpoints.down('sm')]: {
+            width: '90%',
+        },
+        [theme.breakpoints.between('md', 'lg')]: {
+            maxWidth: "1000px",
+        },
     },
     input: {
         display: 'block',
@@ -355,7 +360,7 @@ export default function LoginPage({setPage, setToken}) {
                         })}
                     </Stepper>
                 </Grid>
-                <Grid item xs={10}>
+                <Grid item xs={12} sm={9}>
                     <Paper elevation={6} className={classes.prompt}>
                         <Grid
                             container

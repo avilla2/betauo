@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        margin: "40px 3%"
+        margin: "4% 3%"
     },
     body: {
         fontFamily: "Inter, sans-serif",

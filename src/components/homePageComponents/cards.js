@@ -11,11 +11,8 @@ import ReactMarkdown from 'react-markdown';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        margin: "70px 5% 0 5%",
+        margin: "0 5% 0 5%",
         padding: "0 8px",
-    },
-    head: {
-        fontFamily: '"Poppins", "sans-serif"',
     },
     card: {
         margin: "10px auto",
@@ -87,9 +84,6 @@ export default function Template({ content }) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Typography className={classes.head} variant="h2" gutterBottom>
-                {content.Title}
-            </Typography>
             <Grid
                 container
                 direction="row"

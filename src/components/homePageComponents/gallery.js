@@ -1,12 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        marginTop: "50px",
+      
     },
     gallery: {
         display: 'flex',
@@ -37,9 +36,6 @@ export default function Gallery({ content }) {
     const classes = useStyles();
     return (
     <div className={classes.root}>
-    <Typography variant="h2" gutterBottom>
-        Gallery
-     </Typography>
         <div className={classes.gallery}>
           <ImageList rowHeight="auto" className={classes.imageList} cols={2}>
               {content.Pictures.map((item) => (

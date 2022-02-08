@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
 import { Link } from "react-router-dom";
@@ -8,7 +7,7 @@ import PDF from '../utils/pdf';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        margin: "40px 0px 40px 0px",
+
     },
     btnmenu: {
         color: theme.palette.warning.main,
@@ -39,9 +38,6 @@ export default function Media({ content }) {
 
     return (
         <div className={classes.root}>
-            <Typography className={classes.head} variant="h2" gutterBottom>
-                    {content.Title}
-                </Typography>
                 <div className={classes.links}>
                     <ButtonGroup
                         color="inherit"
