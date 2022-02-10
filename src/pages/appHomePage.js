@@ -32,7 +32,7 @@ export default function AppHomePage({setPage}) {
 
     useEffect(() => {
         let mounted = true;
-        setPage("Dashboard");
+        setPage("App Home");
         getUserData()
         .then(data => {
             if (mounted) {

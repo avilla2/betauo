@@ -10,7 +10,9 @@ const useStyles = makeStyles((theme) => ({
         position: 'fixed', 
         bottom: 0, 
         left: 0, 
-        right: 0, 
+        right: 0,     
+        paddingBottom: '30px',
+        paddingTop: '5px',
     },
     font: {
         fontFamily: "Inter, sans-serif",

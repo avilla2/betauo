@@ -163,6 +163,8 @@ export default function Navbar({ page, content, mobileData }) {
             </IconButton>
           </Toolbar>
         </AppBar>
+        
+        {/* Extra toolbar for spacing */}
         <Toolbar />
       </Hidden>
     </div>
